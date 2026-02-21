@@ -21,20 +21,11 @@ const RecentProjects = () => {
                 "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
             }}
           >
-            <div className="flex items-stretch gap-4 md:gap-6 p-4 md:p-6">
-              {/* Project Image - Hidden on mobile, visible on md+ */}
-              <div className="hidden md:flex flex-shrink-0 w-28 lg:w-32 rounded-2xl overflow-hidden bg-[#13162D] items-center justify-center border border-white/[0.1] group-hover:border-purple/[0.3] transition-all duration-500">
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-
+            <div className="flex flex-col p-6 md:p-8">
               {/* Content */}
               <div className="flex-1 min-w-0 flex flex-col">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold md:group-hover:text-purple transition-colors duration-300">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
+                  <h3 className="text-xl lg:text-2xl font-bold md:group-hover:text-purple transition-colors duration-300">
                     {item.title}
                   </h3>
                   {item.status && (
@@ -44,7 +35,7 @@ const RecentProjects = () => {
                   )}
                 </div>
                 <p
-                  className="text-xs sm:text-sm lg:text-base font-light mb-4"
+                  className="text-xs sm:text-sm lg:text-base font-light mb-5"
                   style={{ color: "#BEC1DD" }}
                 >
                   {item.des}
@@ -52,19 +43,8 @@ const RecentProjects = () => {
 
                 {/* Bottom Section - Button and Tech Stack */}
                 <div className="mt-auto">
-                  {/* View Project Button */}
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-purple/[0.1] border border-purple/[0.3] text-purple text-xs sm:text-sm font-semibold transition-all duration-300 md:hover:bg-purple/[0.2] md:hover:border-purple/[0.5] md:hover:gap-3 mb-3"
-                  >
-                    View Project
-                    <FaLocationArrow className="text-xs transition-transform duration-300 md:group-hover:rotate-45" />
-                  </a>
-
                   {/* Tech Stack Text Badges */}
-                  <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                  <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap mb-4">
                     {(item.techStack || item.iconLists || []).map((tech: any, index: number) => (
                       <span
                         key={index}
@@ -74,6 +54,17 @@ const RecentProjects = () => {
                       </span>
                     ))}
                   </div>
+
+                  {/* View Project Button */}
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-purple/[0.1] border border-purple/[0.3] text-purple text-xs sm:text-sm font-semibold transition-all duration-300 md:hover:bg-purple/[0.2] md:hover:border-purple/[0.5] md:hover:gap-3"
+                  >
+                    View Project
+                    <FaLocationArrow className="text-xs transition-transform duration-300 md:group-hover:rotate-45" />
+                  </a>
                 </div>
               </div>
             </div>
