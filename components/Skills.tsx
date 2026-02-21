@@ -8,7 +8,7 @@ const Skills = () => {
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
 
   const toggleCategory = (index: number) => {
-    if (window.innerWidth < 768) {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
       setExpandedCategory(expandedCategory === index ? null : index);
     }
   };

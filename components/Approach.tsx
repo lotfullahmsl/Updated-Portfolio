@@ -85,8 +85,8 @@ const Card = ({
   const [clicked, setClicked] = React.useState(false);
 
   const handleInteraction = () => {
-    // On mobile, toggle clicked state
-    if (window.innerWidth < 1024) {
+    // On mobile, toggle clicked state - only run on client side
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
       setClicked(!clicked);
     }
   };
